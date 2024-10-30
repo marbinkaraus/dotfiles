@@ -1,0 +1,2 @@
+--ignore='.git|.stowrc|.*\.md|.gitignore|.DS_Store|setup.sh'
+--verbose
