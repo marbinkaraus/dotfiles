@@ -74,7 +74,7 @@ bindkey '^n' history-search-forward
 # Aliases
 #-------------------------------------------------------------------------------
 # Navigation
-alias z='cd'
+# alias z='cd'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias .3='cd ../../..'
