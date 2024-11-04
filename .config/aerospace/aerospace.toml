@@ -29,17 +29,17 @@ default-root-container-orientation = 'auto'
 
 # Keymap
 key-mapping.preset = 'qwerty'
+ 
+[gaps.outer]
+top         = [{ monitor."Built-in Retina Display" = 30 }, 60]
+bottom      = 15
+left        = 15
+right       = 15
 
 # Gaps
 [gaps.inner]
 horizontal  = 15
 vertical    = 15
-
-[gaps.outer]
-top         = 30
-bottom      = 15
-left        = 15
-right       = 15
 
 # Main Bindings
 [mode.main.binding]
