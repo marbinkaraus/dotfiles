@@ -32,8 +32,9 @@
       "keyColor": "green"
     },
     {
-      "type": "wm",
+      "type": "title",
       "key": "  WM      ",
+      "format": "AeroSpace",
       "keyColor": "yellow"
     },
     {
