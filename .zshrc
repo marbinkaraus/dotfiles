@@ -9,6 +9,9 @@ HISTDUP=erase
 # Starship config location
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
+# Lazygit config location
+export XDG_CONFIG_HOME=~/.config/
+
 #-------------------------------------------------------------------------------
 # Zinit Setup and Plugin Management
 #-------------------------------------------------------------------------------
