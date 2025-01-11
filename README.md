@@ -2,25 +2,18 @@
 
 1. Install GNU Stow.
 
-    ```console
-    brew install stow
-    ```
+   ```console
+   brew install stow
+   ```
 
 2. Clone repository to home directory.
 
-    ```console
-    git clone https://github.com/marbinkaraus/dotfiles.git ~
-    ```
+   ```console
+   git clone https://github.com/marbinkaraus/dotfiles.git ~
+   ```
 
 3. Use GNU stow to symlink the directories.
 
-    ### Everything besides zsh config (~/.config)
-    ```console
-    stow .
-    ```
-
-    ### Zshrc (~/.zshrc and ~/.zshenv)
-    ```console
-    stow -v -t ~ zsh/
-    ```
-
+   ```console
+   stow .
+   ```
