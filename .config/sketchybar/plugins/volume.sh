@@ -18,4 +18,4 @@ fi
 
 sketchybar -m \
     --set $NAME icon=$ICON \
-    --set $NAME label="$VOLUME%"
+    --set $NAME label="$VOLUME"

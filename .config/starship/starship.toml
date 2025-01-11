@@ -4,12 +4,12 @@ format = """
 [](surface0)\
 $os\
 $username\
-[](bg:peach fg:surface0)\
+[](bg:flamingo fg:surface0)\
 $directory\
-[](fg:peach bg:green)\
+[](fg:flamingo bg:pink)\
 $git_branch\
 $git_status\
-[](fg:green bg:teal)\
+[](fg:pink bg:orange)\
 $c\
 $rust\
 $golang\
@@ -19,21 +19,20 @@ $java\
 $kotlin\
 $haskell\
 $python\
-[](fg:teal bg:blue)\
-$docker_context\
-[ ](fg:blue)\
+[ ](fg:orange)\
+
 $fill\
 
 $battery\
-[ ](fg:purple)\
+[ ](fg:rosewater)\
 $time\
-[](fg:purple)\
+[](fg:rosewater)\
 $line_break\
 $character"""
 
 
 
-palette = 'catppuccin_mocha'
+palette = 'vitale'
 
 [palettes.gruvbox_dark]
 color_fg0 = '#fbf1c7'
@@ -46,6 +45,34 @@ color_orange = '#d65d0e'
 color_purple = '#b16286'
 color_red = '#cc241d'
 color_yellow = '#d79921'
+
+[palettes.vitale]
+rosewater = "#f4cde9"  # Using Vitale foreground
+flamingo = "#e9897c"   # Vitale palette 1
+pink = "#b6377d"       # Vitale palette 2
+orange = "#75507b"     # Vitale palette 5
+red = "#e9897c"        # Vitale palette 1
+maroon = "#b6377d"     # Vitale palette 2
+peach = "#f99286"      # Vitale palette 9
+yellow = "#ecebbe"     # Vitale palette 3
+green = "#c3f786"      # Vitale palette 10
+teal = "#c9caec"       # Vitale palette 6
+sky = "#a9cdeb"        # Vitale palette 4
+sapphire = "#b6defb"   # Vitale palette 12
+blue = "#a9cdeb"       # Vitale palette 4
+lavender = "#d7d9fc"   # Vitale palette 14
+text = "#f2f2f2"       # Vitale palette 7
+subtext1 = "#e2e2e2"   # Vitale palette 15
+subtext0 = "#f2f2f2"   # Vitale palette 7
+overlay2 = "#6c6c6c"   # Vitale palette 8
+overlay1 = "#464646"   # Vitale palette 0
+overlay0 = "#464646"   # Vitale palette 0
+surface2 = "#464646"   # Vitale palette 0
+surface1 = "#24202c"   # Vitale background
+surface0 = "#24202c"   # Vitale background
+base = "#24202c"       # Vitale background
+mantle = "#24202c"     # Vitale background
+crust = "#24202c"      # Vitale background
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
@@ -77,7 +104,7 @@ crust = "#11111b"
 
 [os]
 disabled = false
-style = "bg:surface0 fg:text"
+style = "bg:surface0 fg:rosewater"
 
 [os.symbols]
 Windows = "󰍲"
@@ -102,12 +129,12 @@ RedHatEnterprise = "󱄛"
 
 [username]
 show_always = true
-style_user = "bg:surface0 fg:text"
-style_root = "bg:surface0 fg:text"
+style_user = "bg:surface0 fg:rosewater"
+style_root = "bg:surface0 fg:rosewater"
 format = '[ $user ]($style)'
 
 [directory]
-style = "fg:mantle bg:peach"
+style = "fg:mantle bg:flamingo"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -121,57 +148,57 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:teal"
-format = '[[ $symbol $branch ](fg:base bg:green)]($style)'
+style = "bg:pink"
+format = '[[ $symbol $branch ](fg:base bg:pink)]($style)'
 
 [git_status]
-style = "bg:teal"
-format = '[[($all_status$ahead_behind )](fg:base bg:green)]($style)'
+style = "bg:pink"
+format = '[[($all_status$ahead_behind )](fg:base bg:pink)]($style)'
 
 [nodejs]
 symbol = ""
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:orange"
+format = '[[ $symbol( $version) ](fg:base bg:orange)]($style)'
 
 [c]
 symbol = " "
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:orange"
+format = '[[ $symbol( $version) ](fg:base bg:orange)]($style)'
 
 [rust]
 symbol = ""
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:orange"
+format = '[[ $symbol( $version) ](fg:base bg:orange)]($style)'
 
 [golang]
 symbol = ""
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:orange"
+format = '[[ $symbol( $version) ](fg:base bg:orange)]($style)'
 
 [php]
 symbol = ""
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:orange"
+format = '[[ $symbol( $version) ](fg:base bg:orange)]($style)'
 
 [java]
 symbol = " "
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:orange"
+format = '[[ $symbol( $version) ](fg:base bg:orange)]($style)'
 
 [kotlin]
 symbol = ""
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:orange"
+format = '[[ $symbol( $version) ](fg:base bg:orange)]($style)'
 
 [haskell]
 symbol = ""
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:orange"
+format = '[[ $symbol( $version) ](fg:base bg:orange)]($style)'
 
 [python]
 symbol = ""
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:orange"
+format = '[[ $symbol( $version) ](fg:base bg:orange)]($style)'
 
 [docker_context]
 symbol = ""
@@ -181,8 +208,8 @@ format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
 [time]
 disabled = false
 time_format = "%R"
-style = "bg:peach"
-format = '[[  $time ](fg:mantle bg:purple)]($style)'
+style = "bg:rosewater"
+format = '[[  $time ](fg:mantle bg:rosewater)]($style)'
 
 [line_break]
 disabled = false

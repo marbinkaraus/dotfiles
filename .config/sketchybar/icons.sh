@@ -17,4 +17,5 @@ export BATTERY_50_ICON=􀺶
 export BATTERY_25_ICON=􀛩
 export BATTERY_0_ICON=􀛪
 
-
+export PLAY_ICON=􀊄
+export PAUSE_ICON=􀊅

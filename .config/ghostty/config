@@ -1,0 +1,10 @@
+theme = vitaale
+font-family = CaskaydiaCove Nerd Font Mono
+font-size = 16
+background-blur-radius = 20
+mouse-hide-while-typing = true
+macos-option-as-alt = true
+background-opacity = 0.85
+macos-titlebar-style = hidden
+window-padding-y = 20
+window-padding-x = 20

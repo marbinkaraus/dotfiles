@@ -1,68 +1,30 @@
-#!/bin/bash
+CONFIG_DIR="$HOME/.config/sketchybar"
+. "$CONFIG_DIR/globals.sh"
+. "$CONFIG_DIR/items.sh"
 
-DIR="$HOME/.config/sketchybar/"
-ITEM_DIR="$DIR/items"
-PLUGIN_DIR="$DIR/plugins"
+sketchybar --bar "${SB_BAR[@]}" --default "${SB_DEFAULT[@]}"
+sketchybar --add event aerospace_workspace_change
+sketchybar --add event pomodoro_start
 
-FONT="CaskaydiaCove Nerd Font"
-ICON_FONT="SF Pro"
+###### Top ######
 
-PADDING=6
+sb_clock left
+sb_pomodoro left
+sb_separator left 14 14
+sb_date left
+sb_separator left 20 16
+sb_spaces left
+sb_separator left 14 14
+sb_frontapp left
 
-source "$DIR/colors.sh"
-source "$DIR/icons.sh"
+###### Btm ######
 
-BAR_PROPS=(
-  height=32
-  color=$BG_PRI_COLR
-  shadow=off
-  position=top
-  sticky=on
-  padding_right=15
-  padding_left=15
-  corner_radius=10
-  y_offset=15
-  margin=15
-  blur_radius=30
-  notch_width=0
-)
+sb_wifi right
+sb_cpu right
+sb_battery right
+sb_volume right
+sb_separator right 12 12
 
-DEF_PROPS=(
-  updates=when_shown
-  icon.font="$ICON_FONT:Regular:16.0"
-  icon.color=$WHITE
-  icon.padding_left=10
-  icon.padding_right=2
-  label.font="$FONT:Bold:14.0"
-  label.color=$WHITE
-  label.padding_left=$PADDING
-  label.padding_right=10
-  background.color=$BG_PRI_COLOR
-  background.padding_right=$PADDING
-  background.padding_left=$PADDING
-  background.height=22
-  background.corner_radius=8
-)
-
-sketchybar --bar "${BAR_PROPS[@]}"
-sketchybar --default "${DEF_PROPS[@]}"
-
-# -- LEFT Side Items --
-source "$ITEM_DIR/apple.sh"
-source "$ITEM_DIR/spaces.sh"
-source "$ITEM_DIR/front_app.sh"
-
-# -- RIGHT Side Items -- 
-source "$ITEM_DIR/time.sh"
-source "$ITEM_DIR/battery.sh"
-source "$ITEM_DIR/sound.sh"
-source "$ITEM_DIR/wifi.sh"
-source "$ITEM_DIR/cpu.sh"
-sketchybar --add item cat center \
-           --set cat icon="≽^•⩊•^≼"\
-                     icon.font="$ICON_FONT:Regular:18.0" \
-                     icon.color=$DARK_WHITE\
-                     label.draw=off
-
+##################
 
 sketchybar --update
