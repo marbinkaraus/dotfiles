@@ -6,8 +6,6 @@ HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 
-export ANTHROPIC_API_KEY=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
-
 # Starship config location
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
