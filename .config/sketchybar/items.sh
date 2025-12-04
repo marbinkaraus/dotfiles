@@ -9,7 +9,7 @@ sb_separator() {
 		--add item "$sepName" "$1" \
 		--set "$sepName" \
 		\
-		label="───────" \
+		label="─────────" \
 		padding_left="$2" \
 		padding_right="$3" \
 		icon.drawing=off \
@@ -22,7 +22,7 @@ sb_clock() {
 		--add item clock "$1" \
 		--set clock \
 		\
-		update_freq=10 \
+		update_freq=5 \
 		label.font.size=14.0 \
 		icon= \
 		icon.drawing=off \
@@ -135,5 +135,68 @@ sb_cpu() {
 		icon=􀫥 \
 		icon.color=$OX_DIM \
 		label.color=$OX_DIM \
-		update_freq=2
+		update_freq=4
+}
+
+sb_memory() {
+	sketchybar \
+		--add item memory "$1" \
+		--set memory \
+		\
+		script="$PLUGIN_DIR/memory.sh" \
+		icon=􀫦 \
+		icon.color=$OX_DIM \
+		label.color=$OX_DIM \
+		update_freq=8
+}
+
+sb_weather() {
+	sketchybar \
+		--add item weather "$1" \
+		--set weather \
+		\
+		script="$PLUGIN_DIR/weather.sh" \
+		icon=􀇆 \
+		icon.color=$OX_DIM \
+		label.color=$OX_MG \
+		update_freq=1800 \
+		click_script="LOCATION=\$(cat /tmp/sketchybar_weather_location 2>/dev/null || echo 'Berlin'); open \"https://wttr.in/\$LOCATION\""
+}
+
+sb_network_speed() {
+	sketchybar \
+		--add item network_speed_down "$1" \
+		--set network_speed_down \
+		\
+		script="$PLUGIN_DIR/network_speed.sh" \
+		icon.drawing=off \
+		label.color=$OX_DIM \
+		label.font.size=11 \
+		padding_left=4 \
+		padding_right=2 \
+		update_freq=5 \
+		\
+		--add item network_speed_up "$1" \
+		--set network_speed_up \
+		\
+		script="$PLUGIN_DIR/network_speed.sh" \
+		icon.drawing=off \
+		label.color=$OX_DIM \
+		label.font.size=11 \
+		padding_left=2 \
+		padding_right=4 \
+		update_freq=5
+}
+
+sb_brew_updates() {
+	sketchybar \
+		--add item brew_updates "$1" \
+		--set brew_updates \
+		\
+		script="$PLUGIN_DIR/brew_updates.sh" \
+		icon=􀐚 \
+		icon.color=$OX_DIM \
+		label.color=$OX_DIM \
+		update_freq=3600 \
+		click_script="open /Users/marbin/.config/sketchybar/plugins/brew_info.command"
 }

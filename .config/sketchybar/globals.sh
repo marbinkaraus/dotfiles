@@ -11,7 +11,7 @@ export SPACE_ICONS=(":terminal:" ":arc:" ":slack:" ":spotify:" ":obsidian:" ":le
 
 export SB_BAR=(
   position=left
-  height=60
+  height=75
   sticky=on
   topmost=on
   shadow=on

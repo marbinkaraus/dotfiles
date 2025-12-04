@@ -1,9 +1,19 @@
 #!/usr/bin/env bash
 
 WORKSPACE=$((1 + $1))
-HAS_WINDOWS=$(aerospace list-windows --workspace $WORKSPACE --count)
-FINDER_OPEN=$(aerospace list-windows --workspace $WORKSPACE --app-bundle-id com.apple.finder)
 
+# Single optimized aerospace call to get all info at once
+WINDOWS_INFO=$(aerospace list-windows --workspace $WORKSPACE --format '%{app-bundle-id}' 2>/dev/null)
+# Properly check if workspace has windows (empty string means no windows)
+if [[ -n "$WINDOWS_INFO" && "$WINDOWS_INFO" != "" ]]; then
+    HAS_WINDOWS=1
+    FINDER_OPEN=$(echo "$WINDOWS_INFO" | grep -q "com.apple.finder" && echo "true" || echo "")
+else
+    HAS_WINDOWS=0
+    FINDER_OPEN=""
+fi
+
+# Proper color-based workspace indication
 if [ "$WORKSPACE" = "$FOCUSED_WORKSPACE" ]; then
     if [ "$FINDER_OPEN" ]; then
         sketchybar --set $NAME label.drawing=on label.color=0xffe9897c icon.color=0xffe9897c
@@ -11,13 +21,13 @@ if [ "$WORKSPACE" = "$FOCUSED_WORKSPACE" ]; then
         sketchybar --set $NAME label.drawing=off label.color=0xffe9897c icon.color=0xffe9897c
     fi
 else
-    if [ "$HAS_WINDOWS" -gt 0 ]; then  # Using > 1 because the command returns a header line
+    if [ "$HAS_WINDOWS" -eq 1 ]; then
         if [ "$FINDER_OPEN" ]; then
-            sketchybar --set $NAME label.drawing=on label.color=0xff8f7a91 icon.color=0xff8f7a91  # original darker color when empty
+            sketchybar --set $NAME label.drawing=on label.color=0xff8f7a91 icon.color=0xff8f7a91
         else
-            sketchybar --set $NAME label.drawing=off label.color=0xff8f7a91 icon.color=0xff8f7a91  # original darker color when empty
+            sketchybar --set $NAME label.drawing=off label.color=0xff8f7a91 icon.color=0xff8f7a91
         fi
     else
-        sketchybar --set $NAME label.drawing=off icon.color=0xff6f5a71  # original darker color when empty
+        sketchybar --set $NAME label.drawing=off icon.color=0xff6f5a71
     fi
 fi

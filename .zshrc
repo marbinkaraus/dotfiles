@@ -134,6 +134,8 @@ alias vim='nvim'
 alias vi='nvim'
 alias v='nvim'
 alias hx='helix'
+alias co='cursor'
+alias coa='cursor .'
 
 # Homebrew
 alias un='brew uninstall'
@@ -151,7 +153,7 @@ alias df='df -h'
 alias reload='source ~/.zshrc'
 alias icat='kitty +kitten icat'
 alias spt='spotify_player'
-alias ssh='kitten ssh'
+alias dep='vendor/bin/dep'
 
 # macOS specific
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
@@ -177,3 +179,13 @@ export PATH="/Users/marbin/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/Users/marbin/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
 export PATH=$PATH:/Users/marbin/.spicetify
+export PATH="$HOME/.local/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/marbin/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$PATH"

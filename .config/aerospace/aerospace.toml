@@ -34,7 +34,7 @@ key-mapping.preset = 'qwerty'
 [gaps.outer]
 top         = 12
 bottom      = 12
-left        = 82
+left        = 97
 right       = 12
 
 # Gaps
@@ -52,6 +52,8 @@ alt-cmd-a = 'exec-and-forget open -a /Applications/Arc.app'
 alt-cmd-o = 'exec-and-forget open -a /Applications/Obsidian.app'
 alt-cmd-g = 'exec-and-forget open -a /Applications/Ghostty.app'
 alt-cmd-s = 'exec-and-forget open -a /Applications/Slack.app'
+alt-cmd-enter = 'exec-and-forget open -a /Applications/Ghostty.app'
+alt-cmd-m = 'exec-and-forget open -a /Users/marbin/Applications/Gmail.app'
 
 # Start pomodoro timer
 alt-cmd-p = 'exec-and-forget /Users/marbin/.config/sketchybar/plugins/trigger_pomodoro.sh'
@@ -82,8 +84,8 @@ alt-shift-cmd-k = 'join-with up'
 alt-shift-cmd-l = 'join-with right'
 
 # Resize focused window
-alt-shift-minus = 'resize smart -50'
-alt-shift-equal = 'resize smart +50'
+alt-shift-minus = 'resize smart -450'
+alt-shift-equal = 'resize smart +450'
 
 # Navigate Workspaces
 alt-1 = 'workspace 1'
@@ -167,7 +169,6 @@ run = 'move-node-to-workspace 1'
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
 run = 'move-node-to-workspace 1'
-# run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
@@ -177,9 +178,9 @@ run = 'move-node-to-workspace 1'
 if.app-id = 'com.todesktop.230313mzl4w4u92'
 run = 'move-node-to-workspace 1'
 
-[[on-window-detected]]
-if.app-id = 'com.DanPristupov.Fork'
-run = ['layout floating', 'move-node-to-workspace 1']
+# [[on-window-detected]]
+# if.app-id = 'com.DanPristupov.Fork'
+# run = ['layout floating', 'move-node-to-workspace 1']
 
 [[on-window-detected]]
 if.app-id = 'com.binarynights.ForkLift'
@@ -195,6 +196,10 @@ run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'com.tidal.desktop'
 run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]

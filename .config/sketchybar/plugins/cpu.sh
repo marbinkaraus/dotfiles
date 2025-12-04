@@ -1,10 +1,11 @@
 #!/bin/bash
 
-CORE_COUNT=$(sysctl -n machdep.cpu.thread_count)
-CPU_INFO=$(ps -eo pcpu,user)
-CPU_SYS=$(echo "$CPU_INFO" | grep -v $(whoami) | sed "s/[^ 0-9\.]//g" | awk "{sum+=\$1} END {print sum/(100.0 * $CORE_COUNT)}")
-CPU_USER=$(echo "$CPU_INFO" | grep $(whoami) | sed "s/[^ 0-9\.]//g" | awk "{sum+=\$1} END {print sum/(100.0 * $CORE_COUNT)}")
+# Much faster CPU monitoring using iostat (more efficient than ps)
+CPU_PERCENT=$(iostat -c 1 -w 1 | tail -1 | awk '{print 100-$6}' | cut -d. -f1)
 
-CPU_PERCENT="$(echo "$CPU_SYS $CPU_USER" | awk '{printf "%.0f\n", ($1 + $2)*100}')"
+# Fallback to simpler ps method if iostat fails
+if [[ -z "$CPU_PERCENT" || "$CPU_PERCENT" -lt 0 || "$CPU_PERCENT" -gt 100 ]]; then
+    CPU_PERCENT=$(ps -A -o %cpu | awk '{s+=$1} END {printf "%.0f", s}')
+fi
 
-sketchybar --set $NAME label="$CPU_PERCENT"
+sketchybar --set cpu label="${CPU_PERCENT}%"

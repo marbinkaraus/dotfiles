@@ -1,11 +1,16 @@
 #!/usr/bin/env sh
 
-LABEL="$(networksetup -listallhardwareports | awk '/Wi-Fi/{getline; print $2}' | xargs networksetup -getairportnetwork)"
+# Get current Wi-Fi network using system_profiler (more reliable than networksetup)
+LABEL="$(system_profiler SPAirPortDataType | awk '/Current Network Information:/{getline; if($0 ~ /:$/) {gsub(/:$/, ""); gsub(/^[[:space:]]+/, ""); print; exit}}')"
 
-if [[ "$LABEL" == *"You are not associated with an AirPort network."* ]]; then
+# If no network found, try alternative method
+if [[ -z "$LABEL" ]]; then
+    LABEL="$(system_profiler SPAirPortDataType | grep -A 1 "Current Network Information:" | grep -E "^\s+[^:]+:$" | head -1 | sed 's/^[[:space:]]*//' | sed 's/:$//')"
+fi
+
+if [[ -z "$LABEL" ]]; then
    sketchybar --set wifi label="Disconnected"
 else
-   LABEL=$(echo "$LABEL" | sed "s/Current Wi-Fi Network: //")
    if [[ ${#LABEL} -gt 3 ]]; then
       SHORTLABEL=$(echo "$LABEL" | cut -c 1-3)
       SHORTLABEL="$SHORTLABEL*"
